@@ -1,0 +1,309 @@
+@font-face {
+  font-family: system;
+  font-style: normal;
+  font-weight: 300;
+  src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"),
+    local("Roboto-Light"), local("DroidSans"), local("Tahoma"),
+    local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light");
+}
+
+/* ---- Theme tokens ---- */
+:root {
+  --frame-bg: #000000;
+  --frame-url-bg: #1b1a1a;
+  --frame-text: #ffffff;
+  --frame-muted: #9c9898;
+  --frame-border: gray;
+  --frame-overlay: rgba(0, 0, 0, 0.6);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --frame-bg: #dee1e6;
+    --frame-url-bg: #f1f3f4;
+    --frame-text: #202124;
+    --frame-muted: #5f6368;
+    --frame-border: #c6c6c6;
+    --frame-overlay: rgba(0, 0, 0, 0.25);
+  }
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--frame-overlay);
+}
+
+#title-bar {
+  height: 31px;
+  background-color: var(--frame-bg);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+}
+
+#logo {
+  padding-left: 5px;
+  vertical-align: middle;
+}
+
+#logo-description {
+  color: var(--frame-text);
+  font-size: 12px;
+  font-family: "system";
+  vertical-align: middle;
+}
+
+#minimize {
+  color: var(--frame-text);
+  font-size: 12px;
+  padding: 9px 15px 7px 15px;
+}
+
+#square {
+  color: var(--frame-text);
+  font-size: 22px;
+  padding: 0px 15px 5px 15px;
+}
+
+#exit {
+  color: var(--frame-text);
+  font-size: 15px;
+  padding: 7px 17px 7px 17px;
+}
+
+#url-bar {
+  height: 28px;
+  background-color: var(--frame-url-bg);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: scroll;
+  text-overflow: ellipsis;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#url-bar::-webkit-scrollbar {
+  display: none;
+}
+
+#ssl-padlock {
+  user-select: none;
+  padding-left: 8px;
+  margin-right: 8px;
+}
+
+#domain-name {
+  color: var(--frame-text);
+  font-size: 14px;
+  font-family: "system";
+}
+
+#domain-path {
+  color: var(--frame-muted);
+  font-size: 14px;
+  font-family: "system";
+}
+
+#title-bar-width {
+  width: calc(190% + 2px); /* 2px added to allow for border on iframe */
+}
+
+#content {
+  width: 190%;
+  flex: 1;
+  border: 1px solid var(--frame-border);
+  display: block;
+}
+
+#window {
+  color: transparent;
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: 100vh;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* General button style */
+.btn {
+  border: none;
+  font-family: 'Lato';
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  cursor: pointer;
+  padding: 25px 80px;
+  display: inline-block;
+  margin: 15px 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/* Pseudo elements for icons */
+.btn:before {
+  font-family: 'FontAwesome';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* Icon separator */
+.btn-sep {
+  padding: 25px 60px 25px 120px;
+}
+
+.btn-sep:before {
+  background: rgba(0,0,0,0.15);
+}
+
+/* Button 1 */
+.btn-1 {
+  background: #3498db;
+  color: #fff;
+}
+
+.btn-1:hover {
+  background: #2980b9;
+}
+
+.btn-1:active {
+  background: #2980b9;
+  top: 2px;
+}
+
+.btn-1:before {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  line-height: 3;
+  font-size: 140%;
+  width: 60px;
+}
+
+/* Button 2 */
+.btn-2 {
+  background: #2ecc71;
+  color: #fff;
+}
+
+.btn-2:hover {
+  background: #27ae60;
+}
+
+.btn-2:active {
+  background: #27ae60;
+  top: 2px;
+}
+
+.btn-2:before {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  line-height: 3;
+  font-size: 140%;
+  width: 60px;
+}
+
+/* Button 3 */
+.btn-3 {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.btn-3:hover {
+  background: #c0392b;
+}
+
+.btn-3:active {
+  background: #c0392b;
+  top: 2px;
+}
+
+.btn-3:before {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  line-height: 3;
+  font-size: 140%;
+  width: 60px;
+}
+
+/* Button 3 */
+.btn-4 {
+  background: #34495e;
+  color: #fff;
+}
+
+.btn-4:hover {
+  background: #2c3e50;
+}
+
+.btn-4:active {
+  background: #2c3e50;
+  top: 2px;
+}
+
+.btn-4:before {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  line-height: 3;
+  font-size: 140%;
+  width: 60px;
+}
+
+/* Icons */
+
+.icon-cart:before {
+  content: "\f0d4";
+}
+
+.icon-heart:before {
+  content: "\f16d";
+}
+
+.icon-info:before {
+  content: "\f082";
+}
+
+.icon-send:before {
+  content: "\f1d8";
+}
+
+
